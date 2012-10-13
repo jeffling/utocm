@@ -1,0 +1,25 @@
+doctype 5
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/custom-theme/jquery-ui-1.8.23.custom.css')
+
+    link(rel='stylesheet', href='/stylesheets/blueprint/screen.css', media='screen, projection')
+    link(rel='stylesheet', href='/stylesheets/blueprint/print.css', media='print')
+    //if lt IE 8
+      link(rel='stylesheet', href='/stylesheets/blueprint/ie.css', media='screen, projection')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+
+    script(type='text/javascript', src='//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js');
+    script(type='text/javascript', src='//ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js');
+    block scripts
+    script(type='text/javascript', src='/javascripts/script.js')
+
+  body
+    .container
+      .span-12.prepend-6.append-6.last
+        - if (typeof(messages) != 'undefined')
+          != flashMessages(messages)
+
+      .span-24.last
+        block content

@@ -1,0 +1,25 @@
+div#eventForm
+  p 
+    label Event Name:
+      input(type='text', name='event[name]', value=event.name || '')
+  p
+    label Description:
+      textarea(name='event[description]', value=event.description || 'Describe your event here')
+  p
+    label Start Time:
+      input.datetimepicker(type='text', name='event[start]', value=event.start || '')
+  p
+    label End Time:
+      input.datetimepicker(type='text', name='event[end]', value=event.end || '')
+  p
+    label Will this trip involve the Cabin?
+      input(type='checkbox', name='event[cabin]', event.cabin)
+  p
+    input(type='submit', value='Submit')
+
+script
+  $(function() {
+    $(".datetimepicker").datetimepicker({
+        ampm: true
+    });
+  });

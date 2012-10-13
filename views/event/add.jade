@@ -1,0 +1,10 @@
+extends ../layout
+
+block scripts
+  link(rel='stylesheet', href='/stylesheets/timepicker_addon.css')
+  script(type='text/javascript', src='/javascripts/timepicker_addon.js')
+
+block content
+  h2 New Event
+  form(method='post', action='/event/new')
+    include form

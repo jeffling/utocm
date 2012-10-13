@@ -1,0 +1,39 @@
+extends ../layout
+
+block content
+  p 
+    | Thanks for registering for our club. 
+    | By filling out this form, you will be added to our mailing list. 
+    | After, you will be given an opportunity to pay and be a full member. 
+
+  form(method='post', action='/user/new')
+    fieldset
+      legend Starred (*) items are required. 
+      p
+        label Email* (The paypal link will be emailed to you directly, make sure this is correct!):
+        br
+        input(type='text', name='user[email]', value=user.email || '')
+      p
+        label Membership Type:
+        br
+        select(name='user[membership_type]')
+          option(value='student').
+            U of T Student
+          option(value='other').
+            Other (Alumni, Staff, Unaffiliated)
+          option(value='family').
+            Family (2 adults and children at one address)
+      p
+        label Name:
+        br
+        input(type='text', name='user[name]', value=user.name || '')
+      p
+        label Student Number:
+        br
+        input(type='text', name='user[student_number]', value=user.student_number || '');
+      p
+        label Phone Number: (Will be kept private)
+        br
+        input(type='text', name='user[phone]', value=user.phone || '')
+    
+    input(type='submit', value='Submit')
